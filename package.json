@@ -1,0 +1,42 @@
+{
+  "name": "test-anywhere",
+  "version": "1.0.0",
+  "metapackage": "typeverse-node-app",
+  "description": "A wrapper package for node-tap with TypeScript typings",
+  "keywords": [
+    "node-tap",
+    "tap",
+    "test",
+    "testing"
+  ],
+  "copyright": "Copyright (c) 2020 Justin Johansson",
+  "license": "UNLICENSED",
+  "repository": "https://gitlab.com/indiescripter/test-anywhere.git",
+  "files": [
+    "lib/*.d.ts",
+    "lib/*.d.ts.map",
+    "lib/*.js",
+    "lib/*.js.map"
+  ],
+  "bin": {
+    "tap": "node_modules/tap/bin/run.js"
+  },
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "dependencies": {
+    "tap": "14.10.7"
+  },
+  "devDependencies": {
+    "@types/node": "13.11.1"
+  },
+  "groundedDependencies": [
+    "@types/node",
+    "tap"
+  ],
+  "bundledDependencies": [
+    "tap"
+  ],
+  "engines": {
+    "node": ">=12"
+  }
+}
