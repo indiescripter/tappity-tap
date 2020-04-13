@@ -36,6 +36,10 @@
   "bundledDependencies": [
     "tap"
   ],
+  "scripts": {
+    "install-global": "npm install -g file:~/llpm-staging/test-anywhere/1.0.0/package.tgz",
+    "uninstall-global": "npm uninstall -g test-anywhere"
+  },
   "engines": {
     "node": ">=12"
   }
