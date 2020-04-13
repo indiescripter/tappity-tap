@@ -27,7 +27,9 @@
     "tap": "14.10.7"
   },
   "devDependencies": {
-    "@types/node": "13.11.1"
+    "@types/node": "13.13.0",
+    "@typescript-eslint/eslint-plugin": "file:../lib/node_modules/buildverse/node_modules/@buildverse/typescript/node_modules/@typescript-eslint/eslint-plugin",
+    "@typescript-eslint/parser": "file:../lib/node_modules/buildverse/node_modules/@buildverse/typescript/node_modules/@typescript-eslint/parser"
   },
   "groundedDependencies": [
     "@types/node",
