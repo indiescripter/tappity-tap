@@ -1,0 +1,4 @@
+#!/bin/sh
+clear
+./shscripts/uninstall
+npm install -g ~/llpm-staging/test-anywhere/1.0.0/package.tgz

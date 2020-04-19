@@ -19,6 +19,7 @@ export interface Test {
 
   tearDown(fn: () => void | Promise<void>): void;
   teardown(fn: () => void | Promise<void>): void;
+
   setTimeout(n: number): void;
   endAll(): void;
   threw(error: Error, extra?: Error, proxy?: Test): void;
@@ -46,16 +47,16 @@ export interface Test {
   passing(): boolean;
   pass(message?: string, extra?: Options.Assert): boolean;
   fail(message?: string, extra?: Options.Assert): boolean;
-  addAssert(name: string, length: number, fn: (...args: any[]) => boolean): boolean;
-  comment(message: string, ...args: any[]): void;
+  addAssert(name: string, length: number, fn: (...args: never[]) => boolean): boolean;
+  comment(message: string, ...args: unknown[]): void;
   bailout(message?: string): void;
   beforeEach(fn: (done: () => void, childTest: Test) => void | Promise<void>): void;
   afterEach(fn: (done: () => void, childTest: Test) => void | Promise<void>): void;
 
   cleanSnapshot: (s: string) => string;
-  formatSnapshot: (obj: any) => string;
+  formatSnapshot: (obj: unknown) => string;
 
-  context: any;
+  context: unknown;
   name: string;
   runOnly: boolean;
   jobs: number;
@@ -85,13 +86,13 @@ export interface Test {
   // Note: since promises always reject and resolve asynchronously, this assertion is implemented asynchronously. As such, it does not return a boolean to indicate its passing status.
   // Instead, it returns a Promise that resolves when it is completed.
   rejects(
-    promiseOrFn: Promise<any> | ((...args: any[]) => Promise<any>),
+    promiseOrFn: Promise<unknown> | ((...args: never[]) => Promise<unknown>),
     expectedError: Error,
     message?: string,
     extra?: Options.Assert
   ): void;
   rejects(
-    promiseOrFn: Promise<any> | ((...args: any[]) => Promise<any>),
+    promiseOrFn: Promise<unknown> | ((...args: never[]) => Promise<unknown>),
     message?: string,
     extra?: Options.Assert
   ): void;
@@ -100,7 +101,7 @@ export interface Test {
   // Note: since promises always reject and resolve asynchronously, this assertion is implemented asynchronously. As such, it does not return a boolean to indicate its passing status.
   // Instead, it returns a Promise that resolves when it is completed.
   resolves(
-    promiseOrFn: Promise<any> | ((...args: any[]) => Promise<any>),
+    promiseOrFn: Promise<unknown> | ((...args: never[]) => Promise<unknown>),
     message?: string,
     extra?: Options.Assert
   ): void;
@@ -109,7 +110,7 @@ export interface Test {
   // Note: since promises always reject and resolve asynchronously, this assertion is implemented asynchronously. As such, it does not return a boolean to indicate its passing status.
   // Instead, it returns a Promise that resolves when it is completed.
   resolveMatch(
-    promiseOrFn: Promise<any> | ((...args: any[]) => Promise<any>),
+    promiseOrFn: Promise<unknown> | ((...args: never[]) => Promise<unknown>),
     wanted: string | RegExp | { [key: string]: RegExp },
     message?: string,
     extra?: Options.Assert
@@ -119,13 +120,13 @@ export interface Test {
   // Note: since promises always reject and resolve asynchronously, this assertion is implemented asynchronously. As such, it does not return a boolean to indicate its passing status.
   // Instead, it returns a Promise that resolves when it is completed.
   resolveMatchSnapshot(
-    promiseOrFn: Promise<any> | ((...args: any[]) => Promise<any>),
+    promiseOrFn: Promise<unknown> | ((...args: never[]) => Promise<unknown>),
     message?: string,
     extra?: Options.Assert
   ): void;
 
   // As of version 11, tap supports saving and then comparing against "snapshot" strings. This is a powerful technique for testing programs that generate output, but it comes with some caveats.
-  matchSnapshot(output: any, message?: string, extra?: Options.Assert): boolean;
+  matchSnapshot(output: unknown, message?: string, extra?: Options.Assert): boolean;
 
   // Expect the function to throw an error. If an expected error is provided, then also verify that the thrown error matches the expected error.
   // If the expected error is an object, then it's matched against the thrown error using t.match(er, expectedError). If it's a function, then the error is asserted to be a member of that class.
@@ -161,7 +162,7 @@ export interface Test {
   // Note: This method will not properly link a thrown error to the correct test object in some cases involving native modules on Node version 8, because the async_hooks module does not track
   // the execution context ID across native boundaries.
   expectUncaughtException(
-    fn?: (...args: any[]) => any,
+    fn?: (...args: never[]) => unknown,
     expectedError?: Error,
     message?: string,
     extra?: Options.Assert
@@ -282,52 +283,52 @@ export interface Test {
 }
 
 export namespace Assertions {
-  export type Basic = (obj: any, message?: string, extra?: Options.Assert) => boolean;
+  export type Basic = (obj: unknown, message?: string, extra?: Options.Assert) => boolean;
 
   export interface Throws {
     (
-      fn?: (...args: any[]) => any,
+      fn?: (...args: never[]) => unknown,
       expectedError?: Error,
       message?: string,
       extra?: Options.Assert
     ): boolean;
     (
-      fn?: (...args: any[]) => any,
+      fn?: (...args: never[]) => unknown,
       messageOrExpectedError?: string | Error,
       extra?: Options.Assert
     ): boolean;
   }
 
   export type DoesNotThrow = (
-    fn?: (...args: any[]) => any,
+    fn?: (...args: never[]) => unknown,
     message?: string,
     extra?: Options.Assert
   ) => boolean;
 
   export type Equal = (
-    found: any,
-    wanted: any,
+    found: unknown,
+    wanted: unknown,
     message?: string,
     extra?: Options.Assert
   ) => boolean;
 
   export type NotEqual = (
-    found: any,
-    notWanted: any,
+    found: unknown,
+    notWanted: unknown,
     message?: string,
     extra?: Options.Assert
   ) => boolean;
 
   export type Match = (
-    found: any,
+    found: unknown,
     pattern: string | RegExp | { [key: string]: RegExp },
     message?: string,
     extra?: Options.Assert
   ) => boolean;
 
   export type Type = (
-    found: any,
-    type: string | (new (...args: any[]) => object),
+    found: unknown,
+    type: string | (new (...args: never[]) => object),
     message?: string,
     extra?: Options.Assert
   ) => boolean;
@@ -335,7 +336,7 @@ export namespace Assertions {
 
 export declare namespace Options {
   export interface Bag {
-    [key: string]: any;
+    [key: string]: unknown;
   }
 
   export interface Pragma {

@@ -1,0 +1,5 @@
+#!/bin/sh
+clear
+npm uninstall -g test-anywhere
+# pnpm uninstall -g test-anywhere
+rm -rf ~/lib/node_modules/test-anywhere
