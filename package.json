@@ -4,13 +4,14 @@
   "metapackage": "typeverse-node-app",
   "description": "A wrapper package for node-tap with TypeScript typings",
   "keywords": [
+    "assert",
     "node-tap",
     "tap",
     "test",
     "testing"
   ],
   "copyright": "Copyright (c) 2020 Justin Johansson",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": "https://gitlab.com/indiescripter/test-anywhere.git",
   "files": [
     "lib/*.d.ts",
@@ -24,20 +25,18 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "dependencies": {
+    "@types/node": "14.0.1",
     "tap": "14.10.7"
   },
   "devDependencies": {
-    "@types/node": "14.0.1",
     "@types/tap": "14.10.0",
     "@typescript-eslint/eslint-plugin": "2.33.0",
     "@typescript-eslint/parser": "2.33.0",
     "eslint": "6.8.0"
   },
   "groundedDependencies": [
+    "@types/node",
     "@types/tap",
-    "@typescript-eslint/eslint-plugin",
-    "@typescript-eslint/parser",
-    "eslint",
     "tap"
   ],
   "bundledDependencies": [

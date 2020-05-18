@@ -11,6 +11,8 @@
  *  Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped/types/tap
  */
 
+const tap: any = require('tap');
+
 import { EventEmitter } from 'events';
 
 export interface Test {
@@ -19,7 +21,6 @@ export interface Test {
 
   tearDown(fn: () => void | Promise<void>): void;
   teardown(fn: () => void | Promise<void>): void;
-
   setTimeout(n: number): void;
   endAll(): void;
   threw(error: Error, extra?: Error, proxy?: Test): void;
@@ -47,16 +48,16 @@ export interface Test {
   passing(): boolean;
   pass(message?: string, extra?: Options.Assert): boolean;
   fail(message?: string, extra?: Options.Assert): boolean;
-  addAssert(name: string, length: number, fn: (...args: never[]) => boolean): boolean;
-  comment(message: string, ...args: unknown[]): void;
+  addAssert(name: string, length: number, fn: (...args: any[]) => boolean): boolean;
+  comment(message: string, ...args: any[]): void;
   bailout(message?: string): void;
   beforeEach(fn: (done: () => void, childTest: Test) => void | Promise<void>): void;
   afterEach(fn: (done: () => void, childTest: Test) => void | Promise<void>): void;
 
   cleanSnapshot: (s: string) => string;
-  formatSnapshot: (obj: unknown) => string;
+  formatSnapshot: (obj: any) => string;
 
-  context: unknown;
+  context: any;
   name: string;
   runOnly: boolean;
   jobs: number;
@@ -86,13 +87,13 @@ export interface Test {
   // Note: since promises always reject and resolve asynchronously, this assertion is implemented asynchronously. As such, it does not return a boolean to indicate its passing status.
   // Instead, it returns a Promise that resolves when it is completed.
   rejects(
-    promiseOrFn: Promise<unknown> | ((...args: never[]) => Promise<unknown>),
+    promiseOrFn: Promise<any> | ((...args: any[]) => Promise<any>),
     expectedError: Error,
     message?: string,
     extra?: Options.Assert
   ): void;
   rejects(
-    promiseOrFn: Promise<unknown> | ((...args: never[]) => Promise<unknown>),
+    promiseOrFn: Promise<any> | ((...args: any[]) => Promise<any>),
     message?: string,
     extra?: Options.Assert
   ): void;
@@ -101,7 +102,7 @@ export interface Test {
   // Note: since promises always reject and resolve asynchronously, this assertion is implemented asynchronously. As such, it does not return a boolean to indicate its passing status.
   // Instead, it returns a Promise that resolves when it is completed.
   resolves(
-    promiseOrFn: Promise<unknown> | ((...args: never[]) => Promise<unknown>),
+    promiseOrFn: Promise<any> | ((...args: any[]) => Promise<any>),
     message?: string,
     extra?: Options.Assert
   ): void;
@@ -110,7 +111,7 @@ export interface Test {
   // Note: since promises always reject and resolve asynchronously, this assertion is implemented asynchronously. As such, it does not return a boolean to indicate its passing status.
   // Instead, it returns a Promise that resolves when it is completed.
   resolveMatch(
-    promiseOrFn: Promise<unknown> | ((...args: never[]) => Promise<unknown>),
+    promiseOrFn: Promise<any> | ((...args: any[]) => Promise<any>),
     wanted: string | RegExp | { [key: string]: RegExp },
     message?: string,
     extra?: Options.Assert
@@ -120,13 +121,13 @@ export interface Test {
   // Note: since promises always reject and resolve asynchronously, this assertion is implemented asynchronously. As such, it does not return a boolean to indicate its passing status.
   // Instead, it returns a Promise that resolves when it is completed.
   resolveMatchSnapshot(
-    promiseOrFn: Promise<unknown> | ((...args: never[]) => Promise<unknown>),
+    promiseOrFn: Promise<any> | ((...args: any[]) => Promise<any>),
     message?: string,
     extra?: Options.Assert
   ): void;
 
   // As of version 11, tap supports saving and then comparing against "snapshot" strings. This is a powerful technique for testing programs that generate output, but it comes with some caveats.
-  matchSnapshot(output: unknown, message?: string, extra?: Options.Assert): boolean;
+  matchSnapshot(output: any, message?: string, extra?: Options.Assert): boolean;
 
   // Expect the function to throw an error. If an expected error is provided, then also verify that the thrown error matches the expected error.
   // If the expected error is an object, then it's matched against the thrown error using t.match(er, expectedError). If it's a function, then the error is asserted to be a member of that class.
@@ -162,7 +163,7 @@ export interface Test {
   // Note: This method will not properly link a thrown error to the correct test object in some cases involving native modules on Node version 8, because the async_hooks module does not track
   // the execution context ID across native boundaries.
   expectUncaughtException(
-    fn?: (...args: never[]) => unknown,
+    fn?: (...args: any[]) => any,
     expectedError?: Error,
     message?: string,
     extra?: Options.Assert
@@ -282,79 +283,27 @@ export interface Test {
   isA: Assertions.Type;
 }
 
-export namespace Assertions {
-  export type Basic = (obj: unknown, message?: string, extra?: Options.Assert) => boolean;
-
-  export interface Throws {
-    (
-      fn?: (...args: never[]) => unknown,
-      expectedError?: Error,
-      message?: string,
-      extra?: Options.Assert
-    ): boolean;
-    (
-      fn?: (...args: never[]) => unknown,
-      messageOrExpectedError?: string | Error,
-      extra?: Options.Assert
-    ): boolean;
-  }
-
-  export type DoesNotThrow = (
-    fn?: (...args: never[]) => unknown,
-    message?: string,
-    extra?: Options.Assert
-  ) => boolean;
-
-  export type Equal = (
-    found: unknown,
-    wanted: unknown,
-    message?: string,
-    extra?: Options.Assert
-  ) => boolean;
-
-  export type NotEqual = (
-    found: unknown,
-    notWanted: unknown,
-    message?: string,
-    extra?: Options.Assert
-  ) => boolean;
-
-  export type Match = (
-    found: unknown,
-    pattern: string | RegExp | { [key: string]: RegExp },
-    message?: string,
-    extra?: Options.Assert
-  ) => boolean;
-
-  export type Type = (
-    found: unknown,
-    type: string | (new (...args: never[]) => object),
-    message?: string,
-    extra?: Options.Assert
-  ) => boolean;
-}
-
 export declare namespace Options {
-  export interface Bag {
-    [key: string]: unknown;
+  interface Bag {
+    [key: string]: any;
   }
 
-  export interface Pragma {
+  interface Pragma {
     [key: string]: boolean;
   }
 
-  export interface Assert extends Bag {
+  interface Assert extends Bag {
     todo?: boolean | string;
     skip?: boolean | string;
     diagnostic?: boolean;
   }
 
-  export interface Spawn extends Assert {
+  interface Spawn extends Assert {
     bail?: boolean;
     timeout?: number;
   }
 
-  export interface Test extends Assert {
+  interface Test extends Assert {
     timeout?: number;
     bail?: boolean;
     autoend?: boolean;
@@ -364,6 +313,60 @@ export declare namespace Options {
     only?: boolean;
     runOnly?: boolean;
   }
+}
+
+export declare namespace Assertions {
+  type Basic = (obj: any, message?: string, extra?: Options.Assert) => boolean;
+  interface Throws {
+    (
+      fn?: (...args: any[]) => any,
+      expectedError?: Error,
+      message?: string,
+      extra?: Options.Assert
+    ): boolean;
+    (
+      fn?: (...args: any[]) => any,
+      messageOrExpectedError?: string | Error,
+      extra?: Options.Assert
+    ): boolean;
+  }
+  type DoesNotThrow = (
+    fn?: (...args: any[]) => any,
+    message?: string,
+    extra?: Options.Assert
+  ) => boolean;
+  type Equal = (found: any, wanted: any, message?: string, extra?: Options.Assert) => boolean;
+  type NotEqual = (found: any, notWanted: any, message?: string, extra?: Options.Assert) => boolean;
+  type Match = (
+    found: any,
+    pattern: string | RegExp | { [key: string]: RegExp },
+    message?: string,
+    extra?: Options.Assert
+  ) => boolean;
+  type Type = (
+    found: any,
+    type: string | (new (...args: any[]) => object),
+    message?: string,
+    extra?: Options.Assert
+  ) => boolean;
+}
+
+export interface Mocha {
+  it: (name?: string, fn?: (a: any) => any) => void;
+  describe: (name?: string, fn?: (a: any) => any) => void;
+  global: () => void;
+}
+
+// Little hack to simulate the Test class on the tap export
+export interface TestConstructor {
+  new (options?: Options.Test): Test;
+  prototype: Test;
+}
+
+export interface Tap extends Test {
+  Test: TestConstructor;
+  mocha: Mocha;
+  mochaGlobals: () => void;
 }
 
 export function test(
@@ -378,4 +381,22 @@ export function test(name: unknown, cb?: unknown): unknown {
   return tap.test(name, cb);
 }
 
-const tap: any = require('tap');
+/*
+tap TAP {
+  name: 'TAP',
+  time: null,
+  hrtime: null,
+  jobs: 1,
+  buffered: false,
+  occupied: false,
+  pool: Pool { length: 0, head: null, tail: null },
+  queue: [ 'TAP version 13\n' ],
+  subtests: [],
+  output: '',
+  skip: false,
+  todo: false,
+  only: false,
+  results: null,
+  options: {}
+}
+ */
