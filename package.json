@@ -34,7 +34,6 @@
     "eslint": "6.8.0"
   },
   "groundedDependencies": [
-    "@types/node",
     "@types/tap",
     "@typescript-eslint/eslint-plugin",
     "@typescript-eslint/parser",
