@@ -8,7 +8,7 @@ tap.test('all-assertions', t => {
     const found: any = 1;
     const wanted: any = 1;
     const notWanted: any = 1;
-    const fn: (stuff: any) => void = () => {};
+    const fn: (stuff: any) => void = () => { /*empty*/ };
     const expectedError: Error = new Error();
     const eventEmitter: EventEmitter = new EventEmitter();
     const promise: Promise<any> = Promise.resolve(1);
