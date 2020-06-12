@@ -38,10 +38,10 @@
     "skipLibCheck": false,
     "sourceMap": true,
     "traceResolution": false,
-    "lib": [ "es2015" ],
-    "types": [ "@types/node" ],
+    "lib": [ "esnext" ],
     "module": "commonjs",
-    "target": "es2015",
+    "target": "esnext",
+    "types": [ "@types/node" ],
     "outDir": "lib"
   },
   "exclude": [ "node_modules" ],

@@ -1,18 +1,34 @@
 {
-  "name": "test-anywhere",
-  "version": "1.0.0",
+  "name": "tappity-tap",
+  "version": "14.0.2",
   "metapackage": "typeverse-node-app",
-  "description": "A wrapper package for node-tap with TypeScript typings",
+  "description": "A wrapper package for node-tap with TypeScript typings included",
   "keywords": [
     "assert",
+    "assertion",
+    "javascript",
+    "node.js",
     "node-tap",
     "tap",
     "test",
-    "testing"
+    "test-anywhere-protocol",
+    "testing",
+    "typings",
+    "types",
+    "typescript"
   ],
+  "license": "ISC",
   "copyright": "Copyright (c) 2020 Justin Johansson",
-  "license": "MIT",
-  "repository": "https://gitlab.com/indiescripter/test-anywhere.git",
+  "homepage": "https://github.com/indiescripter/tappity-tap/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/indiescripter/tappity-tap/issues"
+  },
+  "author": {
+    "name": "Justin Johansson",
+    "email": "connect@indiescripter.com",
+    "url": "https://www.indiescripter.com/"
+  },
+  "repository": "https://github.com/indiescripter/tappity-tap.git",
   "files": [
     "lib/*.d.ts",
     "lib/*.d.ts.map",
@@ -25,15 +41,15 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "dependencies": {
-    "@types/node": "14.0.5",
+    "@types/node": "14.0.13",
     "tap": "14.10.7"
   },
   "devDependencies": {
     "@types/tap": "14.10.0",
-    "@typescript-eslint/eslint-plugin": "3.0.2",
-    "@typescript-eslint/parser": "3.0.2",
-    "eslint": "7.1.0",
-    "typescript": "3.9.3"
+    "@typescript-eslint/eslint-plugin": "3.3.0",
+    "@typescript-eslint/parser": "3.3.0",
+    "eslint": "7.2.0",
+    "typescript": "3.9.5"
   },
   "groundedDependencies": [
     "@types/node",

@@ -1,3 +1,3 @@
-# test-anywhere
+# tappity-tap
 
-A wrapper package for node-tap with TypeScript typings
+A wrapper package for node-tap with TypeScript typings included

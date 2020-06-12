@@ -1,5 +1,5 @@
 #!/bin/sh
 clear
-npm uninstall -g test-anywhere
-# pnpm uninstall -g test-anywhere
-rm -rf ~/lib/node_modules/test-anywhere
+npm uninstall -g tappity-tap
+# pnpm uninstall -g tappity-tap
+rm -rf ~/lib/node_modules/tappity-tap
