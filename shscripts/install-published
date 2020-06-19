@@ -1,4 +1,0 @@
-#!/bin/sh
-clear
-./shscripts/uninstall
-npm install -g --registry http://registry.typeversity.com:4873 tappity-tap

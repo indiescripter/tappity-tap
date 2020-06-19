@@ -1,4 +1,0 @@
-#!/bin/sh
-clear
-./shscripts/uninstall
-npm install -g ~/llpm-staging/tappity-tap/1.0.0/package.tgz
