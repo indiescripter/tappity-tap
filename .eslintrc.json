@@ -4,11 +4,11 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "env": {
-    "browser": true
+    "browser": false
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2017,
+    "ecmaVersion": 2015,
     "sourceType": "module"
   },
   "plugins": [
@@ -37,7 +37,6 @@
     "no-extra-boolean-cast": "off",
     "no-inner-declarations": "off",
     "no-prototype-builtins": "off",
-    "no-redeclare": "off",
     "no-undef": "off",
     "prefer-const": "off",
     "prefer-rest-params": "off",

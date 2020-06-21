@@ -11,11 +11,11 @@
  *  Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped/types/tap
  */
 
-const tap: any = require('tap');
+/// <reference types="node" />
 
 import { EventEmitter } from 'events';
 
-export interface Test {
+interface Test {
   new (options?: Options.Test): Test;
   prototype: Test;
 
@@ -283,7 +283,7 @@ export interface Test {
   isA: Assertions.Type;
 }
 
-export declare namespace Options {
+declare namespace Options {
   interface Bag {
     [key: string]: unknown;
   }
@@ -315,7 +315,7 @@ export declare namespace Options {
   }
 }
 
-export declare namespace Assertions {
+declare namespace Assertions {
   type Basic = (obj: unknown, message?: string, extra?: Options.Assert) => boolean;
   interface Throws {
     (
@@ -361,52 +361,23 @@ export declare namespace Assertions {
   ) => boolean;
 }
 
-export interface Mocha {
+interface Mocha {
   it: (name?: string, fn?: (a: unknown) => unknown) => void;
   describe: (name?: string, fn?: (a: unknown) => unknown) => void;
   global: () => void;
 }
 
 // Little hack to simulate the Test class on the tap export
-export interface TestConstructor {
+interface TestConstructor {
   new (options?: Options.Test): Test;
   prototype: Test;
 }
 
-export interface Tap extends Test {
+interface Tap extends Test {
   Test: TestConstructor;
   mocha: Mocha;
   mochaGlobals: () => void;
 }
 
-export function test(
-  name: string,
-  extra?: Options.Test,
-  cb?: (t: Test) => Promise<unknown> | void
-): Promise<unknown>;
-
-export function test(name: string, cb?: (t: Test) => Promise<unknown> | void): Promise<unknown>;
-
-export function test(name: unknown, cb?: unknown): unknown {
-  return tap.test(name, cb);
-}
-
-/*
-tap TAP {
-  name: 'TAP',
-  time: null,
-  hrtime: null,
-  jobs: 1,
-  buffered: false,
-  occupied: false,
-  pool: Pool { length: 0, head: null, tail: null },
-  queue: [ 'TAP version 13\n' ],
-  subtests: [],
-  output: '',
-  skip: false,
-  todo: false,
-  only: false,
-  results: null,
-  options: {}
-}
- */
+declare const _default: Tap;
+export = _default;
