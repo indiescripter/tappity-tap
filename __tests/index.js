@@ -4,7 +4,7 @@
 
 'use strict';
 
-const tap = require('../index');
+const tap = require('../');
 const test = tap.test;
 
 test('Placeholder', (t) => {

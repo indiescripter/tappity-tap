@@ -13,7 +13,7 @@
     "preserveSymlinks": false,
     "strict": true,
     "allowJs": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "checkJs": true,
     "declaration": false,
     "declarationMap": false,
@@ -44,6 +44,6 @@
     "target": "es2015",
     "outDir": "typings"
   },
-  "exclude": [ "node_modules", "ref" ],
+  "exclude": [ "node_modules", "__ref" ],
   "include": [ "**/*" ]
 }

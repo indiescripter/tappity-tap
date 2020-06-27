@@ -70,7 +70,7 @@
     "format": "prettier --write *.{d.ts,js}",
     "lint": "eslint *.{d.ts,js}",
     "prepare": "npm run format && npm run lint && npm run build",
-    "test": "tap tests/**/*.js"
+    "test": "tap __tests/**/*.js"
   },
   "engines": {
     "node": ">=10"
