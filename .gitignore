@@ -25,7 +25,6 @@ yarn-error.log*
 
 # Project generated
 .bv-*.success
-typings
 
 # Test/coverage output
 .nyc_output
