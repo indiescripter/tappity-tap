@@ -1,13 +1,8 @@
 {
   "compilerOptions": {
     "charset": "utf8",
-    "disableSizeLimit": false,
-    "emitBOM": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": false,
-    "keyofStringsOnly": false,
-    "moduleResolution": "node",
     "newLine": "lf",
     "preserveConstEnums": false,
     "preserveSymlinks": false,
@@ -17,13 +12,18 @@
     "checkJs": true,
     "declaration": false,
     "declarationMap": false,
+    "disableSizeLimit": false,
     "downlevelIteration": true,
+    "emitBOM": false,
     "emitDeclarationOnly": false,
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
     "importHelpers": false,
     "incremental": false,
+    "isolatedModules": false,
+    "keyofStringsOnly": false,
     "maxNodeModuleJsDepth": 0,
+    "moduleResolution": "node",
     "noEmit": true,
     "noEmitHelpers": true,
     "noEmitOnError": true,
@@ -39,11 +39,18 @@
     "sourceMap": false,
     "traceResolution": false,
     "module": "commonjs",
-    "types": [ "@types/node" ],
-    "lib": [ "es2015" ],
-    "target": "es2015",
-    "outDir": "typings"
+    "types": [],
+    "lib": [
+      "es2015"
+    ],
+    "target": "es2015"
   },
-  "exclude": [ "node_modules", "__ref" ],
-  "include": [ "**/*" ]
+  "exclude": [
+    "**/__*",
+    "node_modules"
+  ],
+  "include": [
+    "**/*.d.ts",
+    "**/*.js"
+  ]
 }

@@ -69,8 +69,7 @@
     "build": "tsc -p .",
     "format": "prettier --write *.{d.ts,js}",
     "lint": "eslint *.{d.ts,js}",
-    "prepare": "npm run format && npm run lint && npm run build",
-    "test": "tap __tests/**/*.js"
+    "prepare": "npm run format && npm run lint && npm run build"
   },
   "engines": {
     "node": ">=10"
