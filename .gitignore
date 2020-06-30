@@ -12,7 +12,6 @@ node_modules
 .npm
 logs
 *.log
-package-lock.json
 npm-debug.log*
 pnpm-debug.log*
 yarn-error.log*
