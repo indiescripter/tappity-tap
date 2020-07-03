@@ -6,6 +6,7 @@
   "env": {
     "browser": false
   },
+  "ignorePatterns": ["__ref", "typings"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2015,
