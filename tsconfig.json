@@ -39,7 +39,7 @@
     "sourceMap": false,
     "traceResolution": false,
     "module": "commonjs",
-    "types": [],
+    "types": [ "@types/node" ],
     "lib": [
       "es2015"
     ],

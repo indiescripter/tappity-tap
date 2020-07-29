@@ -23,7 +23,7 @@ yarn-error.log*
 .vscode
 
 # Project generated
-.bv-*.success
+.bv*
 
 # Test/coverage output
 .nyc_output
