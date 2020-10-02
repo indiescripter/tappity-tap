@@ -8,7 +8,7 @@ This package contains type definitions for tap (https://github.com/tapjs/node-ta
 Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/tap.
 
 ### Additional Details
- * Last updated: Mon, 27 Apr 2020 18:29:42 GMT
+ * Last updated: Mon, 14 Sep 2020 20:52:58 GMT
  * Dependencies: [@types/node](https://npmjs.com/package/@types/node)
  * Global values: none
 

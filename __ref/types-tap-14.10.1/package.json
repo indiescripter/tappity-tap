@@ -1,6 +1,6 @@
 {
     "name": "@types/tap",
-    "version": "14.10.0",
+    "version": "14.10.1",
     "description": "TypeScript definitions for tap",
     "license": "MIT",
     "contributors": [
@@ -26,6 +26,6 @@
     "dependencies": {
         "@types/node": "*"
     },
-    "typesPublisherContentHash": "459ed8ac7a7d89f082696d9667dfe44d91b9c6157a87b7d76a0fbb3353552e9f",
-    "typeScriptVersion": "2.8"
+    "typesPublisherContentHash": "c0fd3059d51993b7c671cdac0457b2145ed16935efcb7b2fc5a61cd773728c70",
+    "typeScriptVersion": "3.1"
 }

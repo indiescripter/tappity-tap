@@ -2,7 +2,7 @@
 // Project: https://github.com/tapjs/node-tap
 // Definitions by: Tomas Della Vedova <https://github.com/delvedor>
 //                 Ulf Winkelvos <https://github.com/uwinkelvos>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped/types/tap
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 // TODO: can be removed as soon as https://github.com/tapjs/node-tap/pull/607 is merged
 
@@ -354,7 +354,7 @@ interface Mocha {
 
 // Little hack to simulate the Test class on the tap export
 interface TestConstructor {
-  new (options?: Options.Test): Test;
+  new(options?: Options.Test): Test;
   prototype: Test;
 }
 
