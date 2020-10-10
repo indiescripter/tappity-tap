@@ -35,7 +35,7 @@
     "pretty": true,
     "removeComments": true,
     "resolveJsonModule": false,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "sourceMap": false,
     "traceResolution": false,
     "module": "commonjs",
