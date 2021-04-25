@@ -1,0 +1,36 @@
+{
+    "name": "@types/tap",
+    "version": "15.0.0",
+    "description": "TypeScript definitions for tap",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Tomas Della Vedova",
+            "url": "https://github.com/delvedor",
+            "githubUsername": "delvedor"
+        },
+        {
+            "name": "Ulf Winkelvos",
+            "url": "https://github.com/uwinkelvos",
+            "githubUsername": "uwinkelvos"
+        },
+        {
+            "name": "zkldi",
+            "url": "https://github.com/zkldi",
+            "githubUsername": "zkldi"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/tap"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/node": "*"
+    },
+    "typesPublisherContentHash": "4c582cd9ce41f3d1873fe149adcb9bf4435036eb5a46a8b19e4a4e832415ec21",
+    "typeScriptVersion": "3.5"
+}
